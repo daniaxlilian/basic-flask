@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Analysing Info</title>
+		<style>
+			body{
+				background-color: {{ bgc }};
+				color: white;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<h1>Text: {{ text }}</h1>
+		<p>Length of Text: {{ length }}</p>
+		<p>Number of Digits: {{ num_digits }}</p>
+		<p>Number of Vowels: {{ num_vowels }}</p>
+		<p>Number of Consonants: {{ num_cons }}</p>
+		
+		<ul>
+			{% for char, freq in char_dict.items() %}
+				{% if freq == 1 %}
+				<li>{{ char }} appeared once</li>
+				{% elif freq == 2 %}
+				<li>{{ char }} appeared twice</li>
+				{% else %}
+				<li>{{ char }} appeared {{ freq }} times</li>
+				{% endif %}
+			{% endfor %}
+		</ul>
+	</body>
+</html>
